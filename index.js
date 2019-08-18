@@ -1,16 +1,17 @@
-function takeANumber(currentLine, name) {
-  var number = currentLine.length + 1;
-  currentLine.push(name);
-  return "Welcome, " + name + ". You are number " + number + " in line."
+var line = ["Buffy", "Willow", "Xander", "Anya"];
+var currentNumber = 0;
+
+function takeANumber(currentLine) {
+  currentNumber++;
+  currentLine.push(currentNumber);
+  return "Welcome! You are number " + currentNumber + " in line."
 }
 
 function nowServing(katzDeliLine) {
   if(katzDeliLine.length === 0) {
     return "There is nobody waiting to be served!"
   } else {
-    var firstPerson = katzDeliLine[0];
-    katzDeliLine.shift();
-    return "Currently serving " + firstPerson +".";
+    return "Currently serving " + katzDeliLine.shift() +".";
   }
 }
 
@@ -19,9 +20,17 @@ function currentLine(line) {
     return "The line is currently empty."
   } else {
     var currently = "The line is currently: "
-    for(var num = 0; num < line.length - 1; num++) {
-      currently = currently + (num+1) + ". " + line[num] +", "
-    }
-    return currently + (num+1) + ". " + line[num]
+    return currently + line.join(", ");
   }
 }
+
+console.log(takeANumber(line));
+console.log(takeANumber(line));
+console.log(takeANumber(line));
+console.log(takeANumber(line));
+console.log(takeANumber(line));
+console.log(takeANumber(line));
+console.log(takeANumber(line));
+console.log(nowServing(line));
+console.log(currentLine(line));
+console.log(nowServing(line));
